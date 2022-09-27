@@ -1,35 +1,27 @@
-import express from "express";
-import dotenv from "dotenv";
+import mongoose from 'mongoose';
 
-// Database connection 
- import  ConnectDB from "./database/conection";
+const UserSchema = new mongoose.Schema(
+  {
+    fullName: { type: String, required: true},
+    email: { type: String, required: true},
+    passwored: { type: String, },
+    address: [{ detail: { type: String }, for: { type: String }}],
+    phoneNumber: [ { type: Number  }],
+  },
+  {
+    timestamps: true,
+  }
 
-dotenv.config();
+);
 
-const zomato = express();
+// attachments 
+UserSchema.methods.generateJwtToken = function () {};
 
-zomato.use(express.json());
+// helper funtions
+UserSchema.statics.findByEmailAndPhone = async () => {};
+
+UserSchema.statics.findByEmailAndPassword = async () => {};
 
 
-zomato.get("/", (req, res) => {
-    res.json({
-      message: "Server is running",
-    });
-  });
-  
-
-const PORT = 4000;
-
-zomato.listen(PORT, () => {
-    // ConnectDB()
-    //   .then(() => {
-    //     console.log("Server is running !!!");
-    //   })
-    //   .catch((error) => {
-    //     console.log("Server is running, but database connection failed...");
-    //     console.log(error);
-    //   });
-  
-    console.log("Server is running !!!");
-  });
+export const UserModel = mongoose.model("users", UserSchema);
   

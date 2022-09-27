@@ -1,35 +1,34 @@
-import express from "express";
-import dotenv from "dotenv";
+import mongoose from 'mongoose';
 
-// Database connection 
- import  ConnectDB from "./database/conection";
+const OrderSchema = new mongoose.Schema(
+  {
+   user: {
+    type: mongoose.Types.ObjectId,
+    ref: "users"
+   },
+   orderDetails: [
+    {
+      food: [{datails: {type:mongoose.Types.ObjectId, ref: "foods"}, quantity: {type: Number, required: true}, 
+    },
+  ],
+     
+      payment: {type: String, required: true},
+      status: {type: String, default: "Placed"},
+      paymentDetails: {
+        itemTotal: {type: Number, required: true},
+        promo: {type: Number, required: true},
+        tax: {type: Number, required: true},
+        razorpay_payment_id: {type: String, required: true},
+      }
+    }
+   ]
+  },
+  {
+    timestamps: true,
+  }
 
-dotenv.config();
+);
 
-const zomato = express();
-
-zomato.use(express.json());
-
-
-zomato.get("/", (req, res) => {
-    res.json({
-      message: "Server is running",
-    });
-  });
-  
-
-const PORT = 4000;
-
-zomato.listen(PORT, () => {
-    // ConnectDB()
-    //   .then(() => {
-    //     console.log("Server is running !!!");
-    //   })
-    //   .catch((error) => {
-    //     console.log("Server is running, but database connection failed...");
-    //     console.log(error);
-    //   });
-  
-    console.log("Server is running !!!");
-  });
+export const OrderModel = mongoose.model("orders", OrderSchema);
+  ;
   

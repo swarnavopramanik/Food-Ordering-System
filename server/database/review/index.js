@@ -1,35 +1,26 @@
-import express from "express";
-import dotenv from "dotenv";
+import mongoose from 'mongoose';
 
-// Database connection 
- import  ConnectDB from "./database/conection";
+const ReviewSchema = new mongoose.Schema(
+  {
+    food: {type: mongoose.Types.ObjectId, ref: "foods"},
+    restaurant: {type: mongoose.Types.ObjectId, ref: "restaurant"},
+    user: {type: mongoose.Types.ObjectId, ref: "users"},
+    rating: {type: Number, ref: "true"},
+    reviewText: {type: String, ref: "true"},
+    isRestaurantReview: Boolean,
+    isFoodReview: Boolean,
+    photos: 
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "images",
+      },
+    
+  },
+  {
+    timestamps: true,
+  }
 
-dotenv.config();
+);
 
-const zomato = express();
-
-zomato.use(express.json());
-
-
-zomato.get("/", (req, res) => {
-    res.json({
-      message: "Server is running",
-    });
-  });
-  
-
-const PORT = 4000;
-
-zomato.listen(PORT, () => {
-    // ConnectDB()
-    //   .then(() => {
-    //     console.log("Server is running !!!");
-    //   })
-    //   .catch((error) => {
-    //     console.log("Server is running, but database connection failed...");
-    //     console.log(error);
-    //   });
-  
-    console.log("Server is running !!!");
-  });
+export const ReviewModel = mongoose.model("reviews", ReviewSchema);
   

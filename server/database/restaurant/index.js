@@ -1,35 +1,39 @@
-import express from "express";
-import dotenv from "dotenv";
+import mongoose from 'mongoose';
 
-// Database connection 
- import  ConnectDB from "./database/conection";
+const RestaurantSchema = new mongoose.Schema(
+  {
+  name: {type: String, required: true},
+  city: {type: String, required: true},
+  address: {type: String, required: true},
+  maplocation: {type: String, required: true},
+  cuisine: [String],
+  restaurantTiming: String,
+  contactNumber: Number,
+  website: String,
+  popularDishes: Number,
+  amenties: [String],
+  menuImage: {
+    type: mongoose.Types.ObjectId,
+    ref: "images",
+  },
+  menu: {
+    type: mongoose.Types.ObjectId,
+    ref: "menus",
+  },
+  reviews: [
+  {
+    type: mongoose.Types.ObjectId,
+    ref: "reviews",
+  },
+],
+photos: {type: mongoose.Types.ObjectId, ref: "images"},
 
-dotenv.config();
+  },
+  {
+    timestamps: true,
+  }
 
-const zomato = express();
+);
 
-zomato.use(express.json());
-
-
-zomato.get("/", (req, res) => {
-    res.json({
-      message: "Server is running",
-    });
-  });
-  
-
-const PORT = 4000;
-
-zomato.listen(PORT, () => {
-    // ConnectDB()
-    //   .then(() => {
-    //     console.log("Server is running !!!");
-    //   })
-    //   .catch((error) => {
-    //     console.log("Server is running, but database connection failed...");
-    //     console.log(error);
-    //   });
-  
-    console.log("Server is running !!!");
-  });
+export const RestaurantModel = mongoose.model("restaurants", RestaurantSchema);
   
