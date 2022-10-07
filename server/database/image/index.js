@@ -1,35 +1,18 @@
-import express from "express";
-import dotenv from "dotenv";
+import mongoose from 'mongoose';
 
-// Database connection 
- import  ConnectDB from "./database/conection";
+const ImageSchema = new mongoose.Schema(
+  {
+   images: [
+    {
+      location: { type: String, required: true },   
+    },
+   ],
+  },
+  {
+    timestamps: true,
+  }
 
-dotenv.config();
+);
 
-const zomato = express();
-
-zomato.use(express.json());
-
-
-zomato.get("/", (req, res) => {
-    res.json({
-      message: "Server is running",
-    });
-  });
-  
-
-const PORT = 4000;
-
-zomato.listen(PORT, () => {
-    // ConnectDB()
-    //   .then(() => {
-    //     console.log("Server is running !!!");
-    //   })
-    //   .catch((error) => {
-    //     console.log("Server is running, but database connection failed...");
-    //     console.log(error);
-    //   });
-  
-    console.log("Server is running !!!");
-  });
+export const ImageModel = mongoose.model("images", ImageSchema);
   

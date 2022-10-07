@@ -1,35 +1,32 @@
-import express from "express";
-import dotenv from "dotenv";
+import mongoose from 'mongoose';
 
-// Database connection 
- import  ConnectDB from "./database/conection";
-
-dotenv.config();
-
-const zomato = express();
-
-zomato.use(express.json());
-
-
-zomato.get("/", (req, res) => {
-    res.json({
-      message: "Server is running",
-    });
-  });
+const MenuSchema = new mongoose.Schema(
+  {
+    menus: [
+      {
+        name: {type:String, required: true},
+        items: [
+          {
+            type: mongoose.Types.ObjectId,
+            ref: "foods"
+          },
+        ],
+      },
+    ],
+    recommended: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "foods",
+        unique: true,
+      },
+    ],
   
+  },
+  {
+    timestamps: true,
+  }
 
-const PORT = 4000;
+);
 
-zomato.listen(PORT, () => {
-    // ConnectDB()
-    //   .then(() => {
-    //     console.log("Server is running !!!");
-    //   })
-    //   .catch((error) => {
-    //     console.log("Server is running, but database connection failed...");
-    //     console.log(error);
-    //   });
-  
-    console.log("Server is running !!!");
-  });
+export const MenuModel = mongoose.model("menus", MenuSchema);
   
