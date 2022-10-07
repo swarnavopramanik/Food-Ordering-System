@@ -1,6 +1,6 @@
-import express, { Router } from 'express'
+import express from "express";
 
-import { FoodModel } from '../../database/food'
+import { FoodModel } from "../../database/allModels";
 
 const Router = express.Router();
 
@@ -14,7 +14,6 @@ const Router = express.Router();
  */
 Router.get("/:_id", async (req, res) => {
   try {
-    console.log(req.body)
     const { _id } = req.params;
     const foods = FoodModel.findById(_id);
     return res.json({ foods });
@@ -30,9 +29,9 @@ Router.get("/:_id", async (req, res) => {
  * Access    Public
  * Method    GET
  */
+
 Router.get("/r/:_id", async (req, res) => {
   try {
-    console.log(req.body)
     const { _id } = req.params;
     const foods = await FoodModel.find({
       restaurant: _id,
@@ -50,9 +49,9 @@ Router.get("/r/:_id", async (req, res) => {
  * Access    Public
  * Method    GET
  */
+
 Router.get("/c/:category", async (req, res) => {
   try {
-    console.log(req.body)
     const { category } = req.params;
     const foods = await FoodModel.find({
       category: { $regex: category, $options: "i" },
@@ -70,10 +69,7 @@ Router.get("/c/:category", async (req, res) => {
 });
 
 // /c/non
-non === non - veg;
-non === nonsdfwae;
+ /* non === non - veg;
+ non === nonsdfwae; */
 
-
-
-
-export default Router
+export default Router;
