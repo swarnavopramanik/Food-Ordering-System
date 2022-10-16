@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import DeliveryCarousel from "./DeliveryCarousel";
 import RestaurantCard from "../RestaurantCard";
 
+
 const Delivery = () => {
   const [restaurantList, setRestaurantList] = useState([
     {
