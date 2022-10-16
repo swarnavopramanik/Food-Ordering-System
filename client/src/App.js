@@ -13,6 +13,7 @@ import OrderOnline from "./components/Restaurant/OrderOnline";
 import Menu from "./components/Restaurant/Menu";
 import Reviews from "./components/Restaurant/Reviews";
 import Photos from "./components/Restaurant/Photos";
+import RestaurantLayout from "./layouts/Restaurant.layout";
 
 function App() {
   return (
@@ -22,7 +23,14 @@ function App() {
         <Route path="/:type" element={<Home />} />
         {/* <Route path="/restaurant/:id" element={<RedirectRestaurant />} /> */}
         <Route path="/google/:token" element={<GoogleAuth />} />
-        <Route path="/restaurant/:id" element={<Restaurant />}>
+        <Route
+          path="/restaurant/:id"
+          element={
+            <RestaurantLayout>
+              <Restaurant />
+            </RestaurantLayout>
+          }
+        >
           <Route path="overview" element={<Overview />} />
           <Route path="order-online" element={<OrderOnline />} />
           <Route path="reviews" element={<Reviews />} />
