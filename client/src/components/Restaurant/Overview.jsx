@@ -37,7 +37,20 @@ const Overview = () => {
     "https://b.zmtcdn.com/data/menus/931/931/8d6623791860b054953b6c2c14d61bcb.jpg",
     "https://b.zmtcdn.com/data/menus/931/931/6d462a04051c0eabb0067149aa84cc64.jpg",
   ]);
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState([
+    {
+      rating: 3.5,
+      isRestaurantReview: false,
+      createdAt: "Mon Oct 17 2022 00:29:51 GMT+0530 (India Standard Time)",
+      reviewText: "Very bad experience.",
+    },
+    {
+      rating: 4.5,
+      isRestaurantReview: false,
+      createdAt: "Fri Oct 14 2022 20:19:34 GMT+0530 (India Standard Time)",
+      reviewText: "Very good experience.",
+    },
+  ]);
   const { id } = useParams;
 
   const slideConfig = {
@@ -114,15 +127,13 @@ const Overview = () => {
 
         <div className="flex flex-col-reverse">
           <div className="my-4">
-            <h4 className="text-lg font-medium">
-              Rate your delivery experience
-            </h4>
-            <ReactStars
+            <h4 className="text-lg font-medium">{restaurant.name} Reviews</h4>
+            {/* <ReactStars
               count={5}
               onChange={(newRating) => console.log(newRating)}
               size={24}
               activeColor="#ffd700"
-            />
+            /> */}
             {reviews.map((review, index) => (
               <ReviewCard {...review} key={index} />
             ))}
@@ -157,22 +168,23 @@ const Overview = () => {
           <div className="my-4 w-full md:hidden flex flex-col gap-4">
             <MapView
               title="McDonald's"
-              phno="+193423542345"
-              mapLocation={getLatLong("28.64121406271755, 77.21955482132051")}
-              address="H-5/6, Plaza Building, Connaught Place, New Delhi"
+              phno="+919007994029"
+              mapLocation={getLatLong("22.551447568479922, 88.34619029848368")}
+              address= "20K, Park Street Area, Kolkata"
             />
           </div>
         </div>
       </div>
       <aside
         style={{ height: "fit-content" }}
-        className="hidden md:flex md:w-4/12 sticky rounded-xl top-20 bg-white p-3 shadow-md flex-col gap-4"
+        className="hidden md:flex md:w-4/12 sticky rounded-xl top-20 bg-white py-4 px-4 shadow-md flex-col gap-4"
       >
         <MapView
           title="McDonald's"
-          phno="+193423542345"
-          mapLocation={getLatLong("28.64121406271755, 77.21955482132051")}
-          address="H-5/6, Plaza Building, Connaught Place, New Delhi"
+          phno="+919007994029"
+          mapLocation={getLatLong("22.551447568479922, 88.34619029848368")}
+          latAndLong={"22.551447568479922, 88.34619029848368"}
+          address= "20K, Park Street Area, Kolkata"
         />
       </aside>
     </div>
