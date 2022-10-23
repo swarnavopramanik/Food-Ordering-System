@@ -21,7 +21,7 @@ const RestaurantLayout = ({ children: Component, ...props }) => {
       },
       {
         location:
-          "https://b.zmtcdn.com/data/pictures/chains/8/301718/521b89e0710553Gcee262e5f0b13efb23.jpg",
+          "https://b.zmtcdn.com/data/pictures/chains/8/301718/521b89e0710553cee262e5f0b13efb23.jpg",
       },
       {
         location:
@@ -64,7 +64,7 @@ const RestaurantLayout = ({ children: Component, ...props }) => {
             <RiShareForwardLine /> Share
           </InfoButton>
         </div>
-        <div className="my-10">
+        <div className="my-10 sticky bg-white top-0 pt-2 z-10">
           <Tabs />
         </div>
         {Component}
