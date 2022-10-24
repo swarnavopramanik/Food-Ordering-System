@@ -38,7 +38,7 @@ const RestaurantLayout = ({ children: Component, ...props }) => {
     ],
     name: "Biryani Blues",
     cuisine: ["Biryani", "Kebab", "Desserts"],
-    address: "Connaught Place, New Delhi",
+    address: "Connaught Place, Kolkata",
     restaurantRating: 4.1,
     deliveryRating: 3.2,
   });
