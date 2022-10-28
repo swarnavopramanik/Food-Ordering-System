@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
-import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import { IoMdArrowDropdown } from "react-icons/io";
 import { RiSearch2Line } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 // components
 import SignUp from "../Auth/Signup";
-import Login from "../Auth/Login";
+import LogIn from "../Auth/Login";
+
+// redux
+import { useSelector, useDispatch } from "react-redux";
+import { signOut } from "../../redux/reducers/auth/auth.action";
+import { clearUser } from "../../redux/reducers/user/user.action";
 
 const MobileNav = ({
   user,
@@ -22,6 +28,16 @@ const MobileNav = ({
 
   const SignUp = () => {
     signUp();
+    setIsDropdownOpen(false);
+  };
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const SignOut = () => {
+    dispatch(signOut());
+    dispatch(clearUser());
+    navigate("/delivery");
     setIsDropdownOpen(false);
   };
 
@@ -45,14 +61,14 @@ const MobileNav = ({
               className="border border-gray-300 text-zomato-400 w-9 h-9 rounded-full"
             >
               <img
-                src="https://cdn3.vectorstock.com/i/1000x1000/00/92/teen-boy-character-avatar-vector-11360092.jpg"
+                 src="https://i.ibb.co/TPLR5HX/IMG-20221004-001929.jpg"
                 alt="avatar"
                 className="w-full h-full rounded-full object-cover"
               />
             </div>
             {isDropdownOpen && (
               <div className="absolute shadow-lg py-3 -bottom-14 w-36 z-20 flex flex-col gap-2 bg-white border border-gray-200">
-                <button>Sign Out</button>
+                <button onClick={SignOut}>Sign Out</button>
               </div>
             )}
           </>
@@ -92,6 +108,16 @@ const LargeNav = ({
 
   const SignUp = () => {
     signUp();
+    setIsDropdownOpen(false);
+  };
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const SignOut = () => {
+    dispatch(signOut());
+    dispatch(clearUser());
+    navigate("/delivery");
     setIsDropdownOpen(false);
   };
 
@@ -136,14 +162,14 @@ const LargeNav = ({
               className="border border-gray-300 text-zomato-400 w-9 h-9 rounded-full"
             >
               <img
-                src="https://cdn3.vectorstock.com/i/1000x1000/00/92/teen-boy-character-avatar-vector-11360092.jpg"
+                src="https://i.ibb.co/TPLR5HX/IMG-20221004-001929.jpg"
                 alt="avatar"
                 className="w-full h-full rounded-full object-cover"
               />
             </div>
             {isDropdownOpen && (
               <div className="absolute shadow-lg py-3 -bottom-14 -right-0 w-36 z-20 flex flex-col gap-2 bg-white border border-gray-200">
-                <button>Sign Out</button>
+                <button onClick={SignOut}>Sign Out</button>
               </div>
             )}
           </>
@@ -178,13 +204,15 @@ const Navbar = () => {
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const user = {
-    // fullName: "Swarnavo",
-  };
+  /*  const user = {
+      fullName: "Swarnavo",
+   }; */
+
+  const user = useSelector((globalState) => globalState.user);
 
   return (
     <>
-      <Login isOpen={openLogIn} setIsOpen={setOpenLogIn} />
+      <LogIn isOpen={openLogIn} setIsOpen={setOpenLogIn} />
       <SignUp isOpen={openSignUp} setIsOpen={setOpenSignUp} />
 
       <nav className="p-4 lg:py-2 flex bg-white shadow-md lg:shadow-none lg:border-b-2 border-gray-100 w-full items-center">
