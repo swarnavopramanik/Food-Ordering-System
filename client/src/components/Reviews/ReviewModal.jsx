@@ -3,6 +3,10 @@ import { Dialog, Transition } from "@headlessui/react";
 import { useParams } from "react-router-dom";
 import Rating from "react-rating-stars-component";
 
+// redux
+import { useDispatch } from "react-redux";
+import { postReview } from "../../redux/reducers/review/review.action";
+
 const ReviewModal = ({ isOpen, setIsOpen, type }) => {
   const [reviewData, setReviewData] = useState({
     subject: "",
@@ -11,6 +15,8 @@ const ReviewModal = ({ isOpen, setIsOpen, type }) => {
     isFoodReview: false,
     rating: 0,
   });
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (type === "delivery")
@@ -26,8 +32,6 @@ const ReviewModal = ({ isOpen, setIsOpen, type }) => {
         isFoodReview: false,
       }));
   }, [type]);
-
-  console.log(reviewData.isRestaurantReview, reviewData.isFoodReview);
 
   const { id } = useParams();
 
@@ -63,6 +67,7 @@ const ReviewModal = ({ isOpen, setIsOpen, type }) => {
   };
 
   const submit = () => {
+    dispatch(postReview({ ...reviewData, restaurant: id }));
     closeModal();
     setReviewData({
       subject: "",
