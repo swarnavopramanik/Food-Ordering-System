@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BsShieldLockFill } from "react-icons/bs";
 
 // Layout
@@ -8,30 +8,12 @@ import CheckoutLayout from "../layouts/Checkout.layout";
 import FoodItem from "../components/Cart/FoodItem";
 import AddressList from "../components/Checkout/AddressList";
 
+// redux
+import { useSelector } from "react-redux";
+
 const Checkout = () => {
-  const [cart, setCart] = useState([
-    {
-      image:
-        "https://b.zmtcdn.com/data/dish_photos/af1/fd1b012ebfbe82f2e5212b702ce19af1.jpg",
-      name: "Butter Pancakes with Bacon",
-      rating: 4.5,
-      price: 200,
-      description: "Rashers and bourbon caramel sauce.",
-      quantity: 3,
-      totalPrice: 600,
-    },
-    {
-      image:
-        "https://b.zmtcdn.com/data/dish_photos/077/28e7baadea310b7b337fd2fb3f653077.jpg",
-      name: "Amritsari Fish Tikka",
-      rating: 5,
-      price: 250,
-      quantity: 1,
-      totalPrice: 250,
-      description:
-        "Fish marinated in flavourful lemon-chilli masala roasted in the tandoor with care. Serves 2-3 people.",
-    },
-  ]);
+  const cart = useSelector((globalState) => globalState.cart.cart);
+  const user = useSelector((globalState) => globalState.user);
 
   const address = [
     {
@@ -46,10 +28,10 @@ const Checkout = () => {
 
   const payNow = () => {
     let options = {
-      key: "rzp_test_ZOyhuV2LLIbBRB",
+      key: "rzp_test_q1aD8S4CGOEb75",
       amount:
         cart.reduce((total, current) => total + current.totalPrice, 0) * 100,
-      currency: "Kolkata",
+      currency: "INR",
       name: "Zomato Master",
       description: "Fast Delivery Service",
       handler: (data) => {
@@ -57,15 +39,15 @@ const Checkout = () => {
         console.log(data);
       },
       prefill: {
-        name: "Swarnavo",
-        email: "swarnavo@email.com",
+        name: user.name,
+        email: user.email,
       },
       theme: {
         color: "#e23744",
       },
     };
 
-    let razorpay = new window.Razorpay(options);
+    let razorpay = new window.Razorpay( options );
     razorpay.open();
   };
 
@@ -78,7 +60,7 @@ const Checkout = () => {
           <h5 className="text-base tracking-wider">ORDER FROM</h5>
           <div className="flex w-full flex-col items-center text-gray-400">
             <h4>Domino's Pizza</h4>
-            <small>GT World Mall, Hazra Road, Kolkata</small>
+            <small>GT World Mall, Magadi Road, NCR Noida</small>
           </div>
           <div className="my-4 h-32 overflow-y-scroll px-4 flex flex-col gap-2 w-full md:w-3/5">
             {cart.map((item) => (
