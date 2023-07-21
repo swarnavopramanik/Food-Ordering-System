@@ -5,10 +5,9 @@
 <h2 align="center">Food Delivery Website Services</h2>
     Our food delivery website to help in designing and developing for restaurant business owners to speed up their business enlargement and deliver the most excellent online results for the restaurant business.
 
-## Drive Link 👇
-[Click here](https://drive.google.com/file/d/1QwO3lytrB9R3ceq5pQwGmozw4EmxNNAR/view?usp=sharing)
+## Project Video 👇
 
-https://clipchamp.com/watch/GCNAj6C12mm
+[Click here](https://clipchamp.com/watch/GCNAj6C12mm)
 
  # Getting Started with Create React App 🧑‍💻😶‍🌫️
 This project was bootstrapped with Create React App.
