@@ -3,11 +3,22 @@
 ![image](https://github.com/swarnavopramanik/zomato-clone/assets/105142693/f3094b72-3865-4e19-9ac2-b2cd433ee03d)
 
 <h2 align="center">Food Delivery Website Services</h2>
-    Our food delivery website to help in designing and developing for restaurant business owners to speed up their business enlargement and deliver the most excellent online results for the restaurant business.
+    
+    Our food delivery website to help in designing and developing for restaurant business owners to speed up their business enlargement and 
+    deliver the most excellent online results for the restaurant business.
 
 ## Project Video 👇
 
 [Click here](https://clipchamp.com/watch/GCNAj6C12mm)
+
+<h2 align="center"> Food Delivery App Solutions </h2>
+
+    The food delivery industry is dependent on the latest trends. If you want to develop an app that fulfils your target audience's needs, we have to begin by understanding those needs. The major features of the food delivery apps include ordering, order tracking, reviews, and ratings. To accept and process payments, common payment gateways will be required.
+
+<h2 align="center">Food Delivery App Development Key Features </h2>
+
+
+     PM IT Solution is one of the most well-known website development companies, consistently provides its clients with cost-effective yet successful mobile app services. We can assist restaurant owners with the design and development of mobile applications that will help them expand their companies more quickly and achieve the best potential online outcomes.
 
  # Getting Started with Create React App 🧑‍💻😶‍🌫️
 This project was bootstrapped with Create React App.
