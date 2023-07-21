@@ -1,9 +1,12 @@
-# ZOMATO CLONE   😎😎🧑‍💻🧑‍💻
+<h1 align="center"> Food Delivery Website 🍕 </h1>
 
-![image](https://user-images.githubusercontent.com/105142693/196044129-e60ce575-dd52-486f-95f3-1414877e51d4.png)
+![image](https://github.com/swarnavopramanik/zomato-clone/assets/105142693/f3094b72-3865-4e19-9ac2-b2cd433ee03d)
 
+<h2 align="center">Food Delivery Website Services</h2>
+    Our food delivery website to help in designing and developing for restaurant business owners to speed up their business enlargement and deliver the most excellent online results for the restaurant business.
 
-https://drive.google.com/file/d/1QwO3lytrB9R3ceq5pQwGmozw4EmxNNAR/view?usp=sharing
+## Drive Link 👇
+[Click here](https://drive.google.com/file/d/1QwO3lytrB9R3ceq5pQwGmozw4EmxNNAR/view?usp=sharing)
 
 https://clipchamp.com/watch/GCNAj6C12mm
 
