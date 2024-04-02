@@ -17,6 +17,8 @@ deliver the most excellent online results for the restaurant business.
 
 <h2 align="center"> Food Delivery App Solutions </h2>
 
+
+
 The food delivery industry is dependent on the latest trends. If you want to develop an app that fulfils your target audience's needs, we have to begin by understanding those needs. The major features of the food delivery apps include ordering, order tracking, reviews, and ratings. To accept and process payments, common payment gateways will be required.
 
 <h2 align="center">Food Delivery App Development Key Features </h2>
