@@ -9,7 +9,10 @@ deliver the most excellent online results for the restaurant business.
 
 ## Project Video 👇
 
-[Click here](https://clipchamp.com/watch/GCNAj6C12mm)
+[Click here](https://vimeo.com/929956104?share=copy)
+
+<h2 align="center"> Design (LLD) a system for online food ordering and delivery app </h2>
+[Click here](https://medium.com/@swarnavo.pramanik1701/design-lld-a-system-for-online-food-ordering-and-delivery-like-zomato-93b70cc79a3f)
 
 <h2 align="center"> Food Delivery App Solutions </h2>
 
